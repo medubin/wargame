@@ -1,5 +1,11 @@
-import * as PIXI from 'pixi.js'
+import ViewService from './view/view_service'
+import Board from './view/board'
+import Unit from './view/unit'
 
-const app = new PIXI.Application(1000, 1000)
 const element = document.getElementById('game')
-element.appendChild(app.view)
+const view = new ViewService(element)
+const board = new Board(view.app)
+
+const unit = new Unit(10, 10)
+board.addUnit(unit)
+console.log(unit.getMoves())
